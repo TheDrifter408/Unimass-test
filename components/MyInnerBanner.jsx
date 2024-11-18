@@ -70,7 +70,7 @@ export default function MyInnerBanner() {
                             }}
                             creativeEffect={{
                                 prev:{
-                                    translate:["-10%",0,0]
+                                    translate:["-30%",0,0]
                                 },
                                 next: {
                                     translate:["100%",0,0]
@@ -83,7 +83,7 @@ export default function MyInnerBanner() {
                         {
                             bannerContent.map((content) => (
                                 <SwiperSlide key={content.id}>
-                                    <div className="" >
+                                    <div className="">
                                         <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
                                         
                                     </div>
@@ -104,7 +104,7 @@ const StyledInnerBanner = styled.section`
     .customTransition {
         height:100vh;
         .swiper-wrapper {
-            transition-timing-function: cubic-bezier(.4,0,.69,1);
+            transition-timing-function: cubic-bezier(.59,0,.54,.99);
         }
         .swiper-slide {
             border:none;
@@ -118,12 +118,22 @@ const StyledInnerBanner = styled.section`
                 position:absolute;
                 padding:0;
                 margin:0;
+                left:0;
                 bottom: 120px;
+                font-size:48px;
+                transform: translateX(0%);
+                transition: transform 1500ms 100ms cubic-bezier(.59,0,.54,.99);
                 .bannerLastWord {
                     font-weight: 800;
                 }
             }
         }
+        .swiper-slide-next {
+            .bannerTitle {
+                transform:translateX(-1000px);
+            }
+        }
+
     }
     
 `;
