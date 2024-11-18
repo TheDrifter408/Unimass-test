@@ -102,7 +102,7 @@ const StyledSection = styled.section`
         background-image: linear-gradient(#F27A21 0 0);
         background-repeat: no-repeat;
         background-size: 100% 0%;
-        transition: background-size 500ms ease-in-out;
+        transition: background-size 300ms ease-in-out;
         background-position: bottom;
         color:white; 
 
@@ -131,11 +131,28 @@ const StyledSection = styled.section`
             width:30px;
             border-radius: 50%;
             background-color: transparent;
-            transition: background-color 500ms ease-in-out;
+            transition: background-color 300ms ease-in-out;
             border:none;
+            &::after {
+                content:'';
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                background-color: white;
+                border-radius: 50%;
+                transform:scale(0);
+                transform-origin: center;
+                transition: transform 300ms ease-in-out;
+            }
             .arrow {
+                position:absolute;
+                top:0;
+                left:0;
+                z-index: 1;
                 transform: rotate(0deg);
-                transition: transform 500ms ease-in-out;
+                transition: transform 300ms ease-in-out;
                 height:100%;
                 width:100%;
                 fill:none; 
@@ -145,7 +162,10 @@ const StyledSection = styled.section`
         &:hover {
             background-size: 100% 100%;
             .cardBtn {
-                background-color:white;            
+                &::after {
+                    transform:scale(1);
+                }
+                         
                 .arrow {
                     transform: rotate(45deg);
                     opacity:1;

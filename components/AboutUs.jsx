@@ -6,10 +6,10 @@ import { Img } from './Img';
 
 export default function AboutUs(){
     return(
-        <StyledSection>
+        <StyledSection className='about_overview'>
             <Container>
                 <Row>
-                    <Col className="col" xs={12} sm={12} md={5}>
+                    <Col className='about_overview__left' xs={12} sm={12} md={6}>
                         <h2 className="aboutUsTitle">About Us</h2>
                         <h4 className="aboutUsTag">Unimass Property Solutions, a concern of Unimass Holdings Ltd., brings a legacy of excellence rooted in the construction industry since the early 1990s, expanding into real estate development in 2010.</h4>
                         <p className="aboutUsPara">Over these decades, Unimass Holdings has built an unwavering reputation for delivering premium quality and creating luxurious living spaces that bring aspirations to life. Our talented team of architects, designers, engineers, and managers is dedicated to making dreams a reality, underpinned by values of transparency, honesty, and the highest ethical standards.</p>
@@ -20,7 +20,7 @@ export default function AboutUs(){
                             </a>
                         </div>
                     </Col>
-                    <Col className="col" xs={12} sm={12} md={5}>
+                    <Col  xs={12} sm={12} md={6}>
                         <div className="aboutusBg">
                             <Img src="/images/static/aboutUsBackground.png" width={"100%"} height={"100%"} alt="About Us" top="0" left="0" />
                         </div>
@@ -35,15 +35,12 @@ const StyledSection = styled.section`
     background-color: rgb(240, 240, 240);
     min-height:100vh;
     color:black;
+    padding: 120px 0;
     
-    .row {
-        justify-content: center;
-        height:100%;
-    }
-
-    .col {
-        padding: 30px;
-        min-height: 100%;
+    .about_overview{
+        &__left{
+            padding-right: 80px;
+        }
     }
 
     .col:last-of-type {
@@ -81,14 +78,12 @@ const StyledSection = styled.section`
     }
 
     @media screen and (min-width:768px) {
-        .row {
-            flex-direction: row-reverse;
-        }
+      
         .col:first-of-type {
-            border-left: 1px solid rgba(0,0,0,0.5);
         }
         .col:last-of-type {
-            border:none;
+            border-left: 1px solid rgba(0,0,0,0.5);
+
         }
     }
 
