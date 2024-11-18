@@ -59,8 +59,6 @@ function Title({ text }){
 export default function MyInnerBanner() {
     return (
         <StyledInnerBanner>
-            <Container>
-                <Row>
                     <div className="swiperCtn">
                         <Swiper
                             modules={[Autoplay,EffectCreative,Navigation]}
@@ -88,14 +86,14 @@ export default function MyInnerBanner() {
                                     <div className="swiperSlide" >
                                     <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
                                     </div>
-                                    <Title text={content.title} />
+                                    <Container>
+                                        <Title text={content.title} />
+                                    </Container>
                                 </SwiperSlide>
                             ))
                         }
                         </Swiper>
                     </div>
-                </Row>
-            </Container>
         </StyledInnerBanner>
     );
 };
@@ -103,8 +101,14 @@ export default function MyInnerBanner() {
 const StyledInnerBanner = styled.section`
     position: relative;
     z-index: -10;
-    .customTransition {
+    .swiperCtn {
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+    }
 
+    .customTransition {
         .swiper-wrapper {
             transition-timing-function: cubic-bezier(.4,0,.69,1);
         }
@@ -115,10 +119,17 @@ const StyledInnerBanner = styled.section`
             justify-content: center;
             position:relative;
         }
-        .bannerTitle {
-            .bannerLastWord {
-               font-weight: 800;
+        .container {
+            position:absolute;
+            color:white;
+            width:100%;
+            bottom:120px;
+            .bannerTitle {
+                .bannerLastWord {
+                    font-weight: 800;
+                }
             }
         }
     }
+    
 `;
