@@ -48,13 +48,9 @@ function Title({ text }){
     const tempStr = text.split(" ");
     const lastWord = tempStr.pop();
     return(
-        <Container>
-            <Row>
-                <Col>
-                    <h2 className="bannerTitle">{tempStr.join(" ")}<span className="bannerLastWord">{" "+lastWord}</span></h2>
-                </Col>
-            </Row>
-        </Container>
+        <h2 className="bannerTitle">{tempStr.join(" ")}
+            <span className="bannerLastWord">{" "+lastWord}</span>
+        </h2>
     );
 }
 
@@ -63,39 +59,43 @@ function Title({ text }){
 export default function MyInnerBanner() {
     return (
         <StyledInnerBanner>
-            <div className="swiperCtn">
-                <Swiper
-                    modules={[Autoplay,EffectCreative,Navigation]}
-                    effect={'creative'}
-                    spaceBetween={0}
-                    slidesPerView={1}
-                    autoplay={{
-                        delay:3000,
-                    }}
-                    creativeEffect={{
-                        prev:{
-                            translate:["-10%",0,0]
-                        },
-                        next: {
-                            translate:["100%",0,0]
+            <Container>
+                <Row>
+                    <div className="swiperCtn">
+                        <Swiper
+                            modules={[Autoplay,EffectCreative,Navigation]}
+                            effect={'creative'}
+                            spaceBetween={0}
+                            slidesPerView={1}
+                            autoplay={{
+                                delay:3000,
+                            }}
+                            creativeEffect={{
+                                prev:{
+                                    translate:["-10%",0,0]
+                                },
+                                next: {
+                                    translate:["100%",0,0]
+                                }
+                            }}
+                            loop={true}
+                            className="customTransition"
+                            speed={2000}
+                        >
+                        {
+                            bannerContent.map((content) => (
+                                <SwiperSlide key={content.id}>
+                                    <div className="swiperSlide" >
+                                    <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
+                                    </div>
+                                    <Title text={content.title} />
+                                </SwiperSlide>
+                            ))
                         }
-                    }}
-                    loop={true}
-                    className="customTransition"
-                    speed={2000}
-                >
-                {
-                    bannerContent.map((content) => (
-                        <SwiperSlide key={content.id}>
-                            <div className="swiperSlide" >
-                            <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
-                            </div>
-                            <Title text={content.title} />
-                        </SwiperSlide>
-                    ))
-                }    
-                </Swiper>
-            </div>
+                        </Swiper>
+                    </div>
+                </Row>
+            </Container>
         </StyledInnerBanner>
     );
 };
