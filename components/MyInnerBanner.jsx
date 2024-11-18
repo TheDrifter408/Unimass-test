@@ -103,12 +103,8 @@ export default function MyInnerBanner() {
 const StyledInnerBanner = styled.section`
     position: relative;
     z-index: -10;
-    min-height: 100vh;
-
-    .swiperCtn {
-        min-height:100vh;
-    }
     .customTransition {
+
         .swiper-wrapper {
             transition-timing-function: cubic-bezier(.4,0,.69,1);
         }
@@ -119,20 +115,10 @@ const StyledInnerBanner = styled.section`
             justify-content: center;
             position:relative;
         }
-        .container {
-            width:100%;
-            position: absolute;
-            left:0;
-            bottom:150px;
-            color:white;
-
-            .bannerTitle {
-
-                .bannerLastWord {
-                    font-weight: 800;
-                }
+        .bannerTitle {
+            .bannerLastWord {
+               font-weight: 800;
             }
         }
     }
-    
 `;
