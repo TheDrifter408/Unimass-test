@@ -1,0 +1,50 @@
+/* section {
+  will-change: transform;
+} */
+#smooth-content {
+  will-change: transform;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/Graphik-Medium.woff2') format('woff2'),
+  url('/fonts/Graphik-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/Graphik-Regular.woff2') format('woff2'),
+  url('/fonts/Graphik-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/Graphik-Semibold.woff2') format('woff2'),
+  url('/fonts/Graphik-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+::root {
+  --animationDistance: -100px;
+  --animationDuration: 12s;
+}
+
+
+body {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  font-weight: 400;
+  font-family: "Graphik", "Segoe UI", Arial, Helvetica, freesans,
+    sans-serif !important;
+  font-kerning: none;
+  -webkit-text-rendering: optimizeSpeed;
+  text-rendering: optimizeSpeed;
+
+}
