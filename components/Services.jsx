@@ -54,7 +54,13 @@ export default function Services(){
                                                 <Img width={'100%'} height={'100%'} src={service.imageSrc} alt={service.title} />
                                             </div>
                                             <button className="cardBtn">
-                                                <Img src="/images/static/serviceArrow.svg" width="30px" height="30px" left="0px" top="0px" />
+                                                <svg className="arrow" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle opacity="0.5" cx="15" cy="15" r="14.5" stroke="white"/>
+                                                <g opacity="0.5">
+                                                <path d="M10.7574 19.2426L19.2426 10.7573" stroke="white" stroke-miterlimit="16" stroke-linecap="round"/>
+                                                <path d="M10.7574 10.7574H19.2426V19.2427" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </g>
+                                                </svg>
                                             </button>
                                         </div>
                                         <p className="cardText">{service.title}</p>
@@ -118,32 +124,37 @@ const StyledSection = styled.section`
         }
 
         .cardBtn {
+            padding:0;
+            margin:0;
             position: relative;
-            height: 32px;
-            width: 32px;
+            height:30px;
+            width:30px;
             border-radius: 50%;
+            background-color: transparent;
+            transition: background-color 500ms ease-in-out;
             border:none;
-            background:none;
-            transform: rotate(0deg);
-            background-image: linear-gradient(#FFFF 0 0);
-            background-repeat: no-repeat;
-            background-size: 100% 0%; 
-            transition: transform 500ms ease-in-out, background-size 500ms ease-in-out;
-
-            .global-image {
-                z-index: 10;
+            .arrow {
+                transform: rotate(0deg);
+                transition: transform 500ms ease-in-out;
+                height:100%;
+                width:100%;
+                fill:none; 
             }
         }
 
-        &:hover {            
+        &:hover {
             background-size: 100% 100%;
             .cardBtn {
-                transform: rotate(45deg);
-                background-size: 100% 100%;
-                background-position: center;
+                background-color:white;            
+                .arrow {
+                    transform: rotate(45deg);
+                    opacity:1;
+                    path {
+                        stroke: #F27A21;
+                    }
+
+                }
             }
         }
     }
-
-
 `
