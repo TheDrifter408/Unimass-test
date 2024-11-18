@@ -83,12 +83,13 @@ export default function MyInnerBanner() {
                         {
                             bannerContent.map((content) => (
                                 <SwiperSlide key={content.id}>
-                                    <div className="swiperSlide" >
-                                    <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
+                                    <div className="" >
+                                        <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
+                                        
                                     </div>
                                     <Container>
-                                        <Title text={content.title} />
-                                    </Container>
+                                            <Title text={content.title} />
+                                        </Container>
                                 </SwiperSlide>
                             ))
                         }
@@ -100,31 +101,24 @@ export default function MyInnerBanner() {
 
 const StyledInnerBanner = styled.section`
     position: relative;
-    z-index: -10;
-    .swiperCtn {
-        top:0;
-        left:0;
-        height:100%;
-        width:100%;
-    }
-
     .customTransition {
+        height:100vh;
         .swiper-wrapper {
             transition-timing-function: cubic-bezier(.4,0,.69,1);
         }
         .swiper-slide {
             border:none;
-            display:flex;
-            height:100vh;
-            justify-content: center;
-            position:relative;
         }
         .container {
-            position:absolute;
             color:white;
-            width:100%;
-            bottom:120px;
+            position: relative;
+            height:100%;
+            left:10px;
             .bannerTitle {
+                position:absolute;
+                padding:0;
+                margin:0;
+                bottom: 120px;
                 .bannerLastWord {
                     font-weight: 800;
                 }
