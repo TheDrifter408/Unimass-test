@@ -208,6 +208,7 @@ export default function DesktopMenu({ isOpen, handleClick }){
 
 const StyledMenuContainer = styled.div`
     position:absolute;
+    display:none;
     height:100vh;
     width:100%;
     top:0;
@@ -266,6 +267,7 @@ const StyledMenuContainer = styled.div`
             }
         }
     }
-    
-
+    @media screen and (min-width:768px) {
+        display:block;
+    }
 `

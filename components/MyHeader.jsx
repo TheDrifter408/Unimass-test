@@ -4,6 +4,7 @@ import { Container,Row,Col } from "react-bootstrap";
 import { Img } from "./Img";
 import { useState, useEffect } from 'react';
 import DesktopMenu from "./MyMenu/MenuDesktop";
+import MenuMobile from "./MyMenu/MenuMobile";
 
 export default function MyHeader(){
 
@@ -72,6 +73,7 @@ export default function MyHeader(){
                     </Col>
                     </Row>
                 </Container>
+                <MenuMobile isOpen={isOpen} handleClick={handleClick} />
                 <DesktopMenu isOpen={isOpen} handleClick={handleClick} />
             </header>
         </StyledSection>
