@@ -5,6 +5,7 @@ import { Img } from "./Img";
 import { useState, useEffect } from 'react';
 import DesktopMenu from "./MyMenu/MenuDesktop";
 import MenuMobile from "./MyMenu/MenuMobile";
+import MyButton from "./MyButton";
 
 export default function MyHeader(){
 
@@ -65,9 +66,9 @@ export default function MyHeader(){
                         <div className="ctnMobile">
                             <div className="menuCtn">
                                 <Img src="/images/static/UniMassLogoMobile.svg" height={"25px"} width={"138px"} left={'0px'} top={'35%'} bottom={'0px'} />
-                                <button onClick={handleClick} className="menuButton">
+                                <MyButton handleClick={handleClick} classNames="menuButton">
                                     <Img src="/images/static/MenuIcon.svg" height={40} width={40} top={'0%'} left={'0%'} />
-                                </button>
+                                </MyButton>
                             </div>
                         </div>
                     </Col>

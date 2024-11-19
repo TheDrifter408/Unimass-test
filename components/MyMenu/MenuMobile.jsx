@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Img } from "../Img";
 import { useState } from "react";
 import Image from "next/image";
+import MyButton from "../MyButton";
 
 const links = [
     {
@@ -76,9 +77,9 @@ export default function MenuMobile({ isOpen, handleClick }){
                             <div className="logoCtn">
                             <Img src="/images/static/UnimassLogoMobile.svg" height={"25px"} width={"138px"} left={'0px'} top={'5px'} bottom={'0px'} />
                             </div>
-                            <button onClick={handleClick} className="menuButton">
+                            <MyButton handleClick={handleClick} classNames="menuButton">
                                 <Img src="/images/static/MenuIcon.svg" height={"40px"} width={"40px"} top={'0%'} left={'0%'} />
-                            </button>
+                            </MyButton>
                         </div>
                     </Col>
                 </Row>

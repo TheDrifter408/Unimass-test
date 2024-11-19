@@ -2,6 +2,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { Img } from "../Img";
+import MyButton from "../MyButton";
 
 const linksBody = [
     {
@@ -140,9 +141,9 @@ export default function DesktopMenu({ isOpen, handleClick }){
                     <Col>
                         <div className="headerCtn">
                             <Img src="/images/static/UniMassLogo.svg" height={'80px'} width={"113px"} left={'30px'} top={'10px'} />
-                            <button onClick={handleClick} className="menuButton">
+                            <MyButton handleClick={handleClick} classNames="menuButton">
                                 <Img src="/images/static/CloseIcon.svg" height={40} width={40} top={'0%'} left={'0%'} />
-                            </button>
+                            </MyButton>
                         </div>
                     </Col>
                 </Row>
