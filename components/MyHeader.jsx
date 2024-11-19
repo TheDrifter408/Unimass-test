@@ -64,7 +64,7 @@ export default function MyHeader(){
                         </div>
                         <div className="ctnMobile">
                             <div className="menuCtn">
-                                <Img src="/images/static/UniMassLogoMobile.svg" height={25} width={138} left={'0px'} top={'35%'} bottom={'0px'} />
+                                <Img src="/images/static/UniMassLogoMobile.svg" height={"25px"} width={"138px"} left={'0px'} top={'35%'} bottom={'0px'} />
                                 <button onClick={handleClick} className="menuButton">
                                     <Img src="/images/static/MenuIcon.svg" height={40} width={40} top={'0%'} left={'0%'} />
                                 </button>
@@ -109,6 +109,7 @@ const StyledSection = styled.section`
     }
     .ctnDesktop {
         display:none;
+        
         .menuCtn {
             justify-content: end;
             gap:30px;
