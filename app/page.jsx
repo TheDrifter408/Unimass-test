@@ -1,4 +1,5 @@
 import AboutUs from "@/components/AboutUs";
+import FeaturedProperties from "@/components/FeaturedProperties";
 import MyInnerBanner from "@/components/MyInnerBanner";
 import Services from "@/components/Services";
 
@@ -16,6 +17,7 @@ export default function Home() {
             <MyInnerBanner />
             <Services />
             <AboutUs />
+            <FeaturedProperties />
         </>
     );
 };
