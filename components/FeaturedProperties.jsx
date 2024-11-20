@@ -52,7 +52,7 @@ function Property({ imgSrc,area,title,type,district }){
                 <p>{area}</p>
             </div>
             <Link className="link" href="/">
-            <Img src={imgSrc} width="100%" height="100%" alt="" top="0px" left="0px" position="absolute" />
+            <Img src={imgSrc} width="100%" height="100%" alt="" top="0px" left="0px" position="absolute" objectFit={"contain"} />
             </Link>
             <div className="imgDescCtn">
                 <div className="imgDesc">
@@ -112,7 +112,28 @@ export default function FeaturedProperties(){
                             swiperRef.current = swiper;
                         }}
                         modules={[Autoplay,Navigation]}
-                        
+                        breakpoints={{
+                            320: {
+                                slidesPerView:1,
+                                spaceBetween:10
+                            },
+                            640: {
+                                slidesPerView:1,
+                                spaceBetween:10
+                            },
+                            768:{
+                                slidesPerView:1,
+                                spaceBetween:10
+                            },
+                            1024: {
+                                slidesPerView:2,
+                                spaceBetween:25
+                            },
+                            1440:{
+                                 slidesPerView:3,
+                                 spaceBetween:25
+                            }
+                        }}
                         spaceBetween={25}
                         slidesPerView={3}
                         autoplay={{
@@ -137,7 +158,7 @@ export default function FeaturedProperties(){
 const StyledSection = styled.section`
     background-color:white;
     padding-block:120px;
-    height:100vh;
+    min-height:100vh;
     .swiperTop {
         display:flex;
         justify-content: space-between;
@@ -259,8 +280,8 @@ const StyledSection = styled.section`
             color:white;
             background-image: linear-gradient(to top,rgba(0,0,0,0.8),rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.5) 75%,rgba(0,0,0,0.0));
             .imgDesc {
-                width: 80%;
-                margin-inline:auto;
+                width: 50%;
+                margin-left:20px;
                 h1 {
                     font-size:24px;
                     font-weight:800;
