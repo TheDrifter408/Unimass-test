@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef } from 'react';
 import styled from "styled-components";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay,EffectCreative,Navigation } from 'swiper/modules';
 import { Img } from "@/components/Img";
@@ -61,67 +61,69 @@ export default function MyInnerBanner() {
     return (
         <StyledInnerBanner>
             <Container>
-            <div className="swiperBtnCtn">
-            <button className="swiperBtn" onClick={() => swiperRef.current?.slidePrev()}>
-                <svg className="arrow" width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="15" cy="15" r="14.5" stroke="white"/>
-                <g>
-                <path d="M10.7574 19.2426L19.2426 10.7573" stroke="white" stroke-miterlimit="16" stroke-linecap="round"/>
-                <path d="M10.7574 10.7574H19.2426V19.2427" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-                </svg>
-            </button>
-            <button className="swiperBtn" onClick={() => swiperRef.current?.slideNext()}>
-                <svg className="arrow" width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="15" cy="15" r="14.5" stroke="white"/>
-                <g>
-                <path d="M10.7574 19.2426L19.2426 10.7573" stroke="white" stroke-miterlimit="16" stroke-linecap="round"/>
-                <path d="M10.7574 10.7574H19.2426V19.2427" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-                </svg>
-            </button>
-            </div>
+                <div className="swiperBtnOuter">
+                    <div className="swiperBtnCtn">
+                        <button className="swiperBtn" onClick={() => swiperRef.current?.slidePrev()}>
+                        <svg className="arrow" width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="15" cy="15" r="14.5" stroke="white"/>
+                        <g>
+                        <path d="M10.7574 19.2426L19.2426 10.7573" stroke="white" stroke-miterlimit="16" stroke-linecap="round"/>
+                        <path d="M10.7574 10.7574H19.2426V19.2427" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        </svg>
+                        </button>
+                        <button className="swiperBtn" onClick={() => swiperRef.current?.slideNext()}>
+                        <svg className="arrow" width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="15" cy="15" r="14.5" stroke="white"/>
+                        <g>
+                        <path d="M10.7574 19.2426L19.2426 10.7573" stroke="white" stroke-miterlimit="16" stroke-linecap="round"/>
+                        <path d="M10.7574 10.7574H19.2426V19.2427" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        </svg>
+                        </button>
+                    </div>
+                </div>  
             </Container>
-                <div className="swiperCtn">
-                    <Swiper 
-                        onBeforeInit={(swiper) => {
-                            swiperRef.current = swiper;
-                        }}
-                        modules={[Autoplay,EffectCreative,Navigation]}
-                        effect={'creative'}
-                        creativeEffect={{
-                            prev:{
-                                translate:["-100%",0,0]
-                            },
-                            next: {
-                                translate:["100%",0,0]
-                            }
-                        }}
-                        spaceBetween={0}
-                        slidesPerView={1}
-                        autoplay={{
-                            delay:3000,
-                        }}
-                        loop={true}
-                        className="customTransition"
-                        speed={2000}
-                        >        
-                        {
-                            bannerContent.map((content) => (
-                                <SwiperSlide key={content.id}>
-                                    <div className="">
-                                        <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
-                                        <Container>
-                                        <div className="bannerTitleCtn">
-                                            <Title text={content.title} />
-                                        </div>
-                                        </Container>
-                                    </div>
-                                </SwiperSlide>
-                            ))
+            <div className="swiperCtn">
+                <Swiper 
+                    onBeforeInit={(swiper) => {
+                        swiperRef.current = swiper;
+                    }}
+                    modules={[Autoplay,EffectCreative,Navigation]}
+                    effect={'creative'}
+                    creativeEffect={{
+                        prev:{
+                            translate:["-100%",0,0]
+                        },
+                        next: {
+                            translate:["100%",0,0]
                         }
-                    </Swiper>
-                </div>
+                    }}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    autoplay={{
+                        delay:3000,
+                    }}
+                    loop={true}
+                    className="customTransition"
+                    speed={2000}
+                    >        
+                    {
+                        bannerContent.map((content) => (
+                            <SwiperSlide key={content.id}>
+                                <div className="">
+                                    <Img src={content.imgSrc} height={"100%"} width={"100%"} top="0px" left="0px" objectFit={"cover"} />
+                                    <Container>
+                                    <div className="bannerTitleCtn">
+                                        <Title text={content.title} />
+                                    </div>
+                                    </Container>
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+            </div>
         </StyledInnerBanner>
     );
 };
@@ -129,13 +131,16 @@ export default function MyInnerBanner() {
 const StyledInnerBanner = styled.section`
     height:100vh;
     position:relative;
+    .swiperBtnOuter {
+        position: absolute;
+        top:90%;
+        left:3%;
+        z-index:999;
+    }
+
     .swiperBtnCtn {
-        position:absolute;
         display:flex;
-        z-index:10;
-        right:unset;
         align-items: center;
-        bottom: 20px;
         gap:15px;
         .swiperBtn {
             padding:0;
@@ -145,8 +150,8 @@ const StyledInnerBanner = styled.section`
             justify-content: center;
             align-items: center;
             border:none;
-            height:45px;
-            width:45px;
+            height:35px;
+            width:35px;
             background-color: transparent;
             transition: background-color 300ms ease-in-out;
             .arrow {
@@ -230,9 +235,17 @@ const StyledInnerBanner = styled.section`
         }
     }
     @media screen and (min-width:768px) {
-        .swiperBtnCtn {
-            right:8%;
-            bottom: 13%;
+        .swiperBtnOuter {
+            position:absolute;
+            left:82%;
         }
     }
+    @media screen and (min-width:1024px){
+        .swiperBtnOuter {
+            position:absolute;
+            left:87%;
+            top:82%;
+        }
+    }
+
 `;

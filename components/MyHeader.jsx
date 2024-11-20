@@ -44,39 +44,45 @@ export default function MyHeader(){
 
     return(
         <StyledSection headerTop={headerState.translateUp}>
-            <header className="header">
-                <Container>
-                    <Row> 
-                    <Col>
-                        <div className="ctnDesktop">
-                            <Img srcSm="/images/static/UniMassLogoMobile.svg" src="/images/static/UniMassLogo.svg" height={'80px'} width={"113px"} left={'30px'} top={'10px'} />
-                            <div className="menuCtn">
-                                <nav className="menuOuter">
-                                    <ul className="menuInner">
-                                        <li>Property</li>
-                                        <li>Services</li>
-                                        <li>Contact</li>
-                                    </ul>
-                                </nav>
-                                <button onClick={handleClick} className="menuButton">
-                                    <Img src="/images/static/MenuIcon.svg" height={'40px'} width={'40px'} top={'0%'} left={'0%'} />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="ctnMobile">
-                            <div className="menuCtn">
-                                <Img src="/images/static/UniMassLogoMobile.svg" height={"25px"} width={"138px"} left={'0px'} top={'35%'} bottom={'0px'} />
-                                <MyButton handleClick={handleClick} classNames="menuButton">
-                                    <Img src="/images/static/MenuIcon.svg" height={40} width={40} top={'0%'} left={'0%'} />
-                                </MyButton>
-                            </div>
+            <Container className="h-100">
+                <Row className="h-100 justify-content-between"> 
+                    { /* Desktop View */ }
+                        {/* Desktop Logo */}
+                    <Col md={6} className="d-none d-md-block">
+                        <div className="logoCtn">
+                            <Img src="/images/static/UniMassLogo.svg" height={'80px'} width={"113px"} left={'0px'} top={'10px'} />
                         </div>
                     </Col>
-                    </Row>
-                </Container>
-                <MenuMobile isOpen={isOpen} handleClick={handleClick} />
-                <DesktopMenu isOpen={isOpen} handleClick={handleClick} />
-            </header>
+                        {/* Mobile Logo */}
+                    <Col xs={4} sm={4} className="d-md-none">
+                        <div className="logoCtn">
+                            <Img src="/images/static/UniMassLogoMobile.svg" height={'25px'} width={"138px"} left={'0px'} top={'40px'} />
+                        </div>
+                    </Col>
+                    <Col md={6} className="d-none d-md-block">
+                        <div className="menuCtn">
+                            <nav className="menuOuter">
+                                <ul className="menuInner">
+                                    <li>Property</li>
+                                    <li>Services</li>
+                                    <li>Contact</li>
+                                </ul>
+                            </nav>
+                            <button onClick={handleClick} className="menuButton">
+                                <Img src="/images/static/MenuIcon.svg" height={'40px'} width={'40px'} top={'0%'} left={'0%'} />
+                            </button>
+                        </div>
+                    </Col>
+                    { /* Mobile View */}
+                    <Col xs={6} sm={6} className="d-md-none d-flex align-items-center justify-content-end">
+                        <MyButton handleClick={handleClick} classNames="menuButton">
+                            <Img src="/images/static/MenuIcon.svg" height={40} width={40} top={'0%'} left={'0%'} />
+                        </MyButton>
+                    </Col> 
+                </Row>
+            </Container>
+            <MenuMobile isOpen={isOpen} handleClick={handleClick} />
+            <DesktopMenu isOpen={isOpen} handleClick={handleClick} />
         </StyledSection>
         
     )   
@@ -85,16 +91,19 @@ export default function MyHeader(){
 const StyledSection = styled.section`
     background: transparent;
     position:fixed;
-    color:white;
-    z-index:10;
+    top:0;
     left:0;
-    top: 0;
+    z-index:10;
     width:100%;
+    color:white;
     height: 110px;
     border-bottom: 1px solid rgba(255,255,255,0.5);
     transform: ${(props) => props.headerTop ? `translate3d(0px,-100%,0px)` : 'translate3d(0px,0px,0px)'};
     transition: transform 500ms ease-in-out;
-    
+    .header {
+        position:relative;
+        height:100%;
+    }
     .menuButton {
         position: relative;
         height:45px;
@@ -105,24 +114,26 @@ const StyledSection = styled.section`
     
     .menuCtn {
         display:flex;
-        align-items: center;
+        align-items:center;
+        justify-content:end;
+        gap:30px;
         height:110px;
-    }
-    .ctnDesktop {
-        display:none;
-        
-        .menuCtn {
-            justify-content: end;
-            gap:30px;
         .menuInner {
             display:flex;
             align-items: center;
             gap: 30px;
         }
     }
+    
+    .logoCtn {
+        position:relative;
+        height: 45px;
+        width:138px;
     }
+
     .ctnMobile {
         position:relative;
+        width:100%;
         .imgCtn {
             position:relative;
         }
@@ -130,13 +141,6 @@ const StyledSection = styled.section`
             justify-content: end;
         }
     }
-    @media screen and (min-width: 768px) {
-        .ctnDesktop {
-            display:block;
-        }
-        .ctnMobile {
-            display:none;
-        }
-    }
+    
 `
 

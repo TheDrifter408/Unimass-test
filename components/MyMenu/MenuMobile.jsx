@@ -166,9 +166,9 @@ export default function MenuMobile({ isOpen, handleClick }){
 
 const StyledSection = styled.section`
     position:absolute;
-    display:block;
+    display:flex;
     width:100%;
-    transform:${(props) => props.isOpen ? 'translate3d(0px,0px,0px)' : 'translate3d(0px, -100%,0px)'};
+    transform:${(props) => props.isOpen ? 'translate3d(0px,0px,0px)' : 'translate3d(0px, -200%,0px)'};
     transition:transform 700ms ease-in-out;
     height:100vh;
     top:0;
@@ -176,7 +176,6 @@ const StyledSection = styled.section`
     background-color: #3D342D;
     .menuHead {
         position:relative;
-        width:100%;
         display:flex;
         align-items: center;
         justify-content: space-between;
