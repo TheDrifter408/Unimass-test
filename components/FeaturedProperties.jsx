@@ -124,7 +124,7 @@ export default function FeaturedProperties(){
                     {
                         sliders.map((slider) => (
                             <SwiperSlide key={slider.id}>
-                                <Property imgSrc={slider.imgSrc} area={slider.area} title={slider.title} />
+                                <Property imgSrc={slider.imgSrc} area={slider.area} title={slider.title} type={slider.type} district={slider.district} />
                             </SwiperSlide>
                         ))
                     }
