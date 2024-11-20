@@ -3,6 +3,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Img } from './Img';
+import Image from 'next/image';
 
 export default function AboutUs(){
     return(
@@ -22,7 +23,7 @@ export default function AboutUs(){
                     </Col>
                     <Col  xs={12} sm={12} md={6}>
                         <div className="aboutusBg">
-                            <Img src="/images/static/aboutUsBackground.png" width={"100%"} height={"100%"} alt="About Us" top="0" left="0" />
+                            <Image src="/images/static/aboutUsBackground.png" alt="" width={800} height={800} />
                         </div>
                     </Col>
                 </Row>
@@ -72,9 +73,8 @@ const StyledSection = styled.section`
 
     }
     .aboutusBg {
-        position:relative;
-        min-width:500px;
-        min-height:600px;
+        height:100%;
+        width:100%;
     }
 
     @media screen and (min-width:768px) {
