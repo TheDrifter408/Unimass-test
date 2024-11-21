@@ -3,6 +3,7 @@ import FeaturedProperties from "@/components/FeaturedProperties";
 import MyInnerBanner from "@/components/MyInnerBanner";
 import Requirements from "@/components/Requirements";
 import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonial";
 
 export const metadata = {
     title: {
@@ -20,6 +21,7 @@ export default function Home() {
             <AboutUs />
             <FeaturedProperties />
             <Requirements />
+            <Testimonials />
         </>
     );
 };
