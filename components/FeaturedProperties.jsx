@@ -31,7 +31,7 @@ const sliders = [
         title:"Bashundhara R/A (Block C)",
         imgSrc: "/images/static/DLVD-1.jpg",
         area:"1500sqt-1800sqt",
-        type:"Residential",
+        type:"Commercial",
         district:"Bashundhara"
     },
     {
@@ -48,14 +48,20 @@ function Property({ imgSrc,area,title,type,district }){
     return (
         <div className="imgCtnOuter">
             <div className="imgInfo">
-                <h4>Area</h4>
-                <p>{area}</p>
+                <div className="imgIcon">
+                    <Img src="/images/static/sizeIcon.svg" width="16px" height="17px" top="0px" left="0px" />
+                </div>
+                <div className="imgDetails">
+                    <h4>Area</h4>
+                    <p>{area}</p>
+                </div>
             </div>
             <Link className="link" href="/">
             <Img src={imgSrc} width="100%" height="100%" alt="" top="0px" left="0px" position="absolute" objectFit={"contain"} />
             </Link>
             <div className="imgDescCtn">
                 <div className="imgDesc">
+                    <h2>Rent</h2>
                     <h1>{title}</h1>
                     <p>{type} . {district}</p>
                 </div>
@@ -257,34 +263,64 @@ const StyledSection = styled.section`
         }
         .imgInfo {
             position:absolute;
-            padding:30px;
+            display:flex;
+            align-items: center;
+            gap:10px;
+            padding:15px;
             z-index:999;
-            height:200px;
-            width:200px;
+            height:15%;
+            width:100%;
             font-size:14px;
             color:white;
             opacity:1;
             transform: translateY(-100%);
             transition: transform 350ms ease-in-out, opacity 500ms ease-in-out;
-            h4 {
-                font-size:14px;
-                font-weight: 800;
+            
+            .imgIcon {
+                position:relative;
+                height:17px;
+                width:16px;
+            }
+            .imgDetails {
+                h4 {
+                    font-size:12px;
+                    font-weight: 800;
+                }
+                p {
+                    font-size:12px;
+                    font-weight: 800;
+                }
             }
         }
         .imgDescCtn {
             position:absolute;
             bottom:0;
-            height: 30%;
+            height: 25%;
             width:100%;
             left:0;
             color:white;
             background-image: linear-gradient(to top,rgba(0,0,0,0.8),rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.5) 75%,rgba(0,0,0,0.0));
             .imgDesc {
-                width: 50%;
+                width: 100%;
+                height:100%;
+                padding-block: 30px;
+                display:flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap:5px;
                 margin-left:20px;
+                h1,h2 {
+                    font-size:20px;
+                }
                 h1 {
-                    font-size:24px;
                     font-weight:800;
+                }
+                h2 {
+                    font-size:12px;
+                    background-color: #F27A21;
+                    width:min-content;
+                    padding: 5px 10px;
+                    border-radius:20px;
                 }
             }
         }
