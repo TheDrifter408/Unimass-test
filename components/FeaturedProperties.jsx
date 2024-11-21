@@ -1,8 +1,9 @@
 'use client';
 
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Swiper,SwiperSlide } from 'swiper/react';
+import Select from 'react-select';
 import MyButton from './MyButton';
 import { Img } from './Img';
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -44,12 +45,94 @@ const sliders = [
     },
 ]
 
+const filterOptions = [
+    {
+        id:1,
+        options:[
+            {
+                id:1,
+                value:"rent",
+                label:"Rent"
+            },
+        ]
+    },
+    {
+        id:2,
+        options:[
+            {
+                id:1,
+                value:"commercial",
+                label:"Commercial"
+            },
+            {
+                id:2,
+                value:"residential",
+                label:"Residential"
+            },
+        ]
+    },
+    {
+        id:3,
+        options:[
+            {
+                id:1,
+                value:"1200-1500",
+                label:"1200sqt - 1500sqt"
+            },
+            {
+                id:2,
+                value:"1500-1800",
+                label:"1500sqt - 1800sqt"
+            },
+        ]
+    },
+    {
+        id:4,
+        options:[
+            {
+                id:1,
+                value:"bashundhara",
+                label:"Bashundhara"
+            },
+            {
+                id:2,
+                value:"dhanmondi",
+                label:"Dhanmondi"
+            },
+            {
+                id:3,
+                value:"lalmatia",
+                label:"Lalmatia"
+            },
+            {
+                id:3,
+                value:"uttara",
+                label:"Uttara"
+            },
+        ]
+    },
+]
+
+function PropertyFilter(){
+    return(
+        <>
+            {
+                filterOptions.map((option) => (
+                    <Col xs={12} key={option.id} >
+                        <Select className="reactSelectCtn" classNamePrefix='react-select' options={option.options} />
+                    </Col>
+                ))
+            }
+        </>
+    )
+}
+
 function Property({ imgSrc,area,title,type,district }){
     return (
         <div className="imgCtnOuter">
             <div className="imgInfo">
                 <div className="imgIcon">
-                    <Img src="/images/static/sizeIcon.svg" width="16px" height="17px" top="0px" left="0px" />
+                    <Img src="/images/static/sizeIcon.svg" width="100%" height="100%" top="0px" left="0px" />
                 </div>
                 <div className="imgDetails">
                     <h4>Area</h4>
@@ -62,7 +145,7 @@ function Property({ imgSrc,area,title,type,district }){
             <div className="imgDescCtn">
                 <div className="imgDesc">
                     <h2>Rent</h2>
-                    <h1>{title}</h1>
+                    <h4>{title}</h4>
                     <p>{type} . {district}</p>
                 </div>
             </div>
@@ -91,71 +174,81 @@ export default function FeaturedProperties(){
     return(
         <StyledSection>
             <Container>
-                <div className="swiperTop">
-                    <h1 className="swiperTitle">Featured Properties</h1>
-                    <div className="swiperBtnCtn">
-                        <MyButton classNames="swiperBtn" handleClick={handlePrev}>
-                        <svg className="arrow" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="15" cy="15" r="14.5" />
-                        <g >
-                        <path d="M10.7574 19.2426L19.2426 10.7573"  stroke-miterlimit="16" stroke-linecap="round"/>
-                        <path d="M10.7574 10.7574H19.2426V19.2427"  stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        </svg>
-                        </MyButton>
-                        <MyButton classNames="swiperBtn" handleClick={handleNext}>
-                        <svg className="arrow" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                        <circle  cx="15" cy="15" r="14.5" />
-                        <g >
-                        <path d="M10.7574 19.2426L19.2426 10.7573"  stroke-miterlimit="16" stroke-linecap="round"/>
-                        <path d="M10.7574 10.7574H19.2426V19.2427"  stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        </svg>
-                        </MyButton>
+                <Row>
+                    <Col xs={12}>
+                    <div className="swiperTop">
+                        <h1 className="swiperTitle">Featured Properties</h1>
+                        <div className="swiperBtnCtn">
+                            <MyButton classNames="swiperBtn" handleClick={handlePrev}>
+                                <svg className="arrow" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="15" cy="15" r="14.5" />
+                                <g >
+                                <path d="M10.7574 19.2426L19.2426 10.7573"  stroke-miterlimit="16" stroke-linecap="round"/>
+                                <path d="M10.7574 10.7574H19.2426V19.2427"  stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                </svg>
+                            </MyButton>
+                            <MyButton classNames="swiperBtn" handleClick={handleNext}>
+                                <svg className="arrow" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                <circle  cx="15" cy="15" r="14.5" />
+                                <g >
+                                <path d="M10.7574 19.2426L19.2426 10.7573"  stroke-miterlimit="16" stroke-linecap="round"/>
+                                <path d="M10.7574 10.7574H19.2426V19.2427"  stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                </svg>
+                            </MyButton>
+                        </div>
                     </div>
-                </div>
-                <Swiper onBeforeInit={(swiper) => {
+                    </Col>
+                    <Col>
+                        <Swiper onBeforeInit={(swiper) => {
                             swiperRef.current = swiper;
-                        }}
-                        modules={[Autoplay,Navigation]}
-                        breakpoints={{
-                            320: {
-                                slidesPerView:1,
-                                spaceBetween:10
-                            },
-                            640: {
-                                slidesPerView:1,
-                                spaceBetween:10
-                            },
-                            768:{
-                                slidesPerView:1,
-                                spaceBetween:10
-                            },
-                            1024: {
-                                slidesPerView:2,
-                                spaceBetween:25
-                            },
-                            1440:{
-                                 slidesPerView:3,
-                                 spaceBetween:25
+                            }}
+                            modules={[Autoplay,Navigation]}
+                            breakpoints={{
+                                320: {
+                                    slidesPerView:1,
+                                    spaceBetween:10
+                                },
+                                640: {
+                                    slidesPerView:1,
+                                    spaceBetween:10
+                                },
+                                768:{
+                                    slidesPerView:1,
+                                    spaceBetween:10
+                                },
+                                1024: {
+                                    slidesPerView:2,
+                                    spaceBetween:25
+                                },
+                                1440:{
+                                    slidesPerView:3,
+                                    spaceBetween:25
+                                }
+                            }}
+                            spaceBetween={25}
+                            slidesPerView={3}
+                            autoplay={{
+                                delay:3000,
+                            }}
+                            loop={true}
+                            className="customTransition"
+                            speed={2000}
+                        >
+                            {
+                                sliders.map((slider) => (
+                                    <SwiperSlide key={slider.id}>
+                                        <Property imgSrc={slider.imgSrc} area={slider.area} title={slider.title} type={slider.type} district={slider.district} />
+                                    </SwiperSlide>
+                                ))
                             }
-                        }}
-                        spaceBetween={25}
-                        slidesPerView={3}
-                        autoplay={{
-                            delay:3000,
-                        }}
-                        loop={true}
-                        className="customTransition"
-                        speed={2000}>
-                    {
-                        sliders.map((slider) => (
-                            <SwiperSlide key={slider.id}>
-                                <Property imgSrc={slider.imgSrc} area={slider.area} title={slider.title} type={slider.type} district={slider.district} />
-                            </SwiperSlide>
-                        ))
-                    }
-                </Swiper>
+                        </Swiper>
+                    </Col>
+                </Row>
+                <Row>
+                    <PropertyFilter />
+                </Row>
             </Container>
         </StyledSection>
     )
@@ -295,25 +388,26 @@ const StyledSection = styled.section`
         .imgDescCtn {
             position:absolute;
             bottom:0;
-            height: 25%;
+            height: auto;
             width:100%;
             left:0;
             color:white;
             background-image: linear-gradient(to top,rgba(0,0,0,0.8),rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.5) 75%,rgba(0,0,0,0.0));
             .imgDesc {
-                width: 100%;
+                width: 50%;
                 height:100%;
-                padding-block: 30px;
+                padding-block:30px;
                 display:flex;
                 flex-direction: column;
                 justify-content: space-between;
                 gap:5px;
-                margin-left:20px;
+                margin-inline:20px;
                 h1,h2 {
                     font-size:20px;
                 }
-                h1 {
+                h4 {
                     font-weight:800;
+                    word-wrap: break-word;
                 }
                 h2 {
                     font-size:12px;

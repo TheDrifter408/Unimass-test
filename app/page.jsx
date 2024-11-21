@@ -1,6 +1,7 @@
 import AboutUs from "@/components/AboutUs";
 import FeaturedProperties from "@/components/FeaturedProperties";
 import MyInnerBanner from "@/components/MyInnerBanner";
+import Requirements from "@/components/Requirements";
 import Services from "@/components/Services";
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function Home() {
             <Services />
             <AboutUs />
             <FeaturedProperties />
+            <Requirements />
         </>
     );
 };
