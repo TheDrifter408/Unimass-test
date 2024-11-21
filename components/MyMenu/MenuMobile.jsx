@@ -6,6 +6,7 @@ import { Img } from "../Img";
 import { useState } from "react";
 import Image from "next/image";
 import MyButton from "../MyButton";
+import Link from "next/link";
 
 const links = [
     {
@@ -75,7 +76,7 @@ export default function MenuMobile({ isOpen, handleClick }){
                     <Col>
                         <div className="menuHead">
                             <div className="logoCtn">
-                            <Img src="/images/static/UnimassLogoMobile.svg" height={"25px"} width={"138px"} left={'0px'} top={'5px'} bottom={'0px'} />
+                            <Img src="/images/static/UniMassLogoMobile.svg" height={"25px"} width={"138px"} left={'0px'} top={'5px'} bottom={'0px'} />
                             </div>
                             <MyButton handleClick={handleClick} classNames="menuButton">
                                 <Img src="/images/static/MenuIcon.svg" height={"40px"} width={"40px"} top={'0%'} left={'0%'} />
@@ -106,8 +107,8 @@ export default function MenuMobile({ isOpen, handleClick }){
                                                     {
                                                         link.children.map((child,idx) => (
                                                             <li key={idx}>
-                                                                <a href="">{child}
-                                                                </a>
+                                                                <Link className="link" href="">{child}
+                                                                </Link>
                                                             </li>
                                                         ))
                                                     }
@@ -174,6 +175,10 @@ const StyledSection = styled.section`
     top:0;
     left:0;
     background-color: #3D342D;
+    overflow:scroll;
+    .link {
+        color:white;
+    }
     .menuHead {
         position:relative;
         display:flex;
@@ -225,9 +230,6 @@ const StyledSection = styled.section`
         border-bottom: 1px solid rgba(233, 233, 233,0.2);
         li {
             margin-bottom: 15px;
-            a {
-                color:#E9E9E9;
-            }
         }
     }   
     

@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { Img } from "../Img";
 import MyButton from "../MyButton";
+import Link from "next/link";
 
 const linksBody = [
     {
@@ -159,7 +160,7 @@ export default function DesktopMenu({ isOpen, handleClick }){
                                             {
                                                 link.children.map((child) => (
                                                     <li key={child.id}>
-                                                        <a href="">{child.text}</a>
+                                                        <Link className="link" href="">{child.text}</Link>
                                                     </li>
                                                 ))
                                             }
@@ -216,6 +217,10 @@ const StyledMenuContainer = styled.div`
     transform:${(props) => props.isOpen ? 'translate3d(0px,0px,0px)' : 'translate3d(0px,-100%, 0px)'};
     transition: transform 700ms ease-in-out;
     background: #3D342D;
+    .link {
+        color:white;
+    }
+    
     .container {
         position:relative;
         height:100%;

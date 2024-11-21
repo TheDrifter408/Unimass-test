@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Img } from "./Img";
 import { Col, Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const linksBody = [
     {
@@ -278,7 +279,7 @@ export default function MyFooter(){
                         </div>
                     </Col>
                     <Col>
-                        <p>Designed &amp; Developed by Dcastalia</p>
+                        <Link className="link" href="https://dcastalia.com/" target="_blank">Designed &amp; Developed by Dcastalia</Link>
                     </Col>
                 </Row>
             </Container>
@@ -293,6 +294,10 @@ const StyledFooter = styled.footer`
     padding-top:120px;
     padding-bottom: 60px;
     color:white; 
+
+    .link {
+        color:white;
+    }
 
     .row:first-of-type {
         border-bottom: 1px solid rgba(255,255,255,0.5);
