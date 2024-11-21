@@ -50,10 +50,10 @@ export default function RootLayout({children}) {
     return (
         <html lang="en">
         <SEO
-            title="CFMoto Bangladesh"
-            description="CFMOTO is all about blending performance and style with affordability, making high-quality motorcycles accessible to all. We’re constantly innovating, so each ride feels powerful, smooth, and, most importantly, memorable."
-            keywords="CFMOTO, Bikes , Bangladesh , CFMoto"
-            author="CFMoto Bangladesh"
+            title="Unimass Property Solutions"
+            description="Unimass Property Solutions desc."
+            keywords="Unimass, Property, Properties , Bangladesh , Unimass Property"
+            author="Unimass Property Solutions"
             url={`https://localhost:3000${pathName}`}
             image="/images/static/logo.svg"
             twitterHandle=""
