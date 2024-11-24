@@ -30,9 +30,8 @@ export default function Requirements(){
 }
 
 const StyledSection = styled.section`
-    height:100vh;
+    min-height:100vh;
     position:relative;
-    margin-block: 20px;
     .requirementsWrapper {
         position:absolute;
         transform:translateY(100%);

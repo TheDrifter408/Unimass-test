@@ -113,19 +113,6 @@ const filterOptions = [
     },
 ]
 
-function PropertyFilter(){
-    return(
-        <>
-            {
-                filterOptions.map((option) => (
-                    <Col xs={12} key={option.id} >
-                        <Select className="reactSelectCtn" classNamePrefix='react-select' options={option.options} />
-                    </Col>
-                ))
-            }
-        </>
-    )
-}
 
 function Property({ imgSrc,area,title,type,district }){
     return (
@@ -173,6 +160,7 @@ export default function FeaturedProperties(){
 
     return(
         <StyledSection>
+            <Img src="/images/static/propertiesBg.svg" top="20%" left="55%" position="absolute" width="832px" height="832px" margin="" />
             <Container>
                 <Row>
                     <Col xs={12}>
@@ -246,8 +234,22 @@ export default function FeaturedProperties(){
                         </Swiper>
                     </Col>
                 </Row>
-                <Row>
-                    <PropertyFilter />
+            </Container>
+            <Container>
+                <Row className="justify-content-center">
+                    <Col>
+                        <div className="propertyFilterCtn">
+                            {
+                                filterOptions.map((option) => (
+                                    <Select className="reactSelectCtn" classNamePrefix='react-select' options={option.options} />
+                                ))
+                            }
+                            <MyButton classNames="filterBtn">
+                                Search
+                            </MyButton>
+                        
+                        </div>
+                    </Col>
                 </Row>
             </Container>
         </StyledSection>
@@ -255,9 +257,57 @@ export default function FeaturedProperties(){
 }
 
 const StyledSection = styled.section`
-    background-color:white;
+    background-color: rgba(255, 255, 255, 0.863);
     padding-block:120px;
     min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    .propertyFilterCtn {
+        margin-top: 70px;
+        padding:30px;
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        align-items: center;
+        gap:15px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 40px 0px;
+        border-radius:10px;
+        background-color: white;
+        .reactSelectCtn{
+            width:100%;
+        }
+        .filterBtn {
+            border:none;
+            border-radius: 10px;
+            padding: 10px 30px;
+            display:block;
+            position:relative;
+            margin-inline:auto;
+            background-color: rgb(0,94,158);
+            color:white;
+            z-index:0;
+            &::after {
+                content:'';
+                position:absolute;
+                border-radius: 20px;
+                padding: 10px 30px;
+                z-index:-1;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                background-color: #F27A21;
+                transform:scale(0);
+                transition:transform 500ms ease-in-out;
+            }
+            &:hover {
+                &::after {
+                    transform:scale(1);
+                }
+            }
+        }
+    }
+    
     .swiperTop {
         display:flex;
         justify-content: space-between;
