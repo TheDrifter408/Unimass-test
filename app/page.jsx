@@ -1,5 +1,6 @@
 import AboutUs from "@/components/AboutUs";
 import FeaturedProperties from "@/components/FeaturedProperties";
+import MediaCenter from "@/components/MediaCenter";
 import MyInnerBanner from "@/components/MyInnerBanner";
 import Requirements from "@/components/Requirements";
 import Services from "@/components/Services";
@@ -22,6 +23,7 @@ export default function Home() {
             <FeaturedProperties />
             <Requirements />
             <Testimonials />
+            <MediaCenter />
         </>
     );
 };

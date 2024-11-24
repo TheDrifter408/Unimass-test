@@ -29,13 +29,17 @@ export default function Testimonials(){
 
 const StyledSection = styled.section`
     position:relative;
-    height:100vh;
+    min-height:100vh;
+    padding-block: 120px;
+    background-color: rgb(233,233,233);
     h1 {
         text-align: center;
         margin-block: 30px;
+        font-weight: 800;
     }
     .imgCtnWrapper {
         width:100%;
+        height:100%;
         .imgCtn {
             width:100%;
             height:100%;
