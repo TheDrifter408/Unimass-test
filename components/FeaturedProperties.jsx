@@ -274,7 +274,7 @@ const StyledSection = styled.section`
         border-radius:10px;
         background-color: white;
         .reactSelectCtn{
-            width:100%;
+            min-width:300px;
         }
         .filterBtn {
             border:none;
