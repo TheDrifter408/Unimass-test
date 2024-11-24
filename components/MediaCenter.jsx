@@ -122,7 +122,7 @@ const StyledSection = styled.section`
         }
         .global-image {
             transform:scale(1);
-            transition: transform 250ms ease-in;
+            transition: transform 250ms ease-in-out;
         
         }
         .cardDes {
