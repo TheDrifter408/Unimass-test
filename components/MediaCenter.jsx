@@ -76,6 +76,7 @@ const StyledSection = styled.section`
         border: 1px solid black;
         border-radius: 20px;
         padding: 10px 30px;
+        margin-block: 30px;
         display:block;
         position:relative;
         margin-inline:auto;
@@ -105,18 +106,25 @@ const StyledSection = styled.section`
         margin-block: 50px;
         font-weight: 800;
     }
-    .cardImage {
-        position:relative;
-        margin-inline:10px;
-        min-height:370px;
-        min-width:360px;
-    }
+    
     .cardOuter {
         height:100%;
         margin-bottom: 30px;
         display:flex;
         flex-direction: column;
         overflow:hidden;
+        background-color:rgb(255,255,255);
+        .cardImage {
+            position:relative;
+            min-height:250px;
+            min-width:360px;
+            overflow:hidden;
+        }
+        .global-image {
+            transform:scale(1);
+            transition: transform 250ms ease-in;
+        
+        }
         .cardDes {
             display:flex;
             flex-direction: column;
@@ -125,6 +133,12 @@ const StyledSection = styled.section`
             h3 {
                 font-size:24px;
                 font-weight: 500;
+            }
+        }
+        &:hover {
+            cursor:pointer;
+            .global-image {
+                transform:scale(1.1);
             }
         }
     }
